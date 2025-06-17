@@ -38,6 +38,7 @@ namespace BusinessLogicLayer
         //..where the changes are being executed on my DbSet which goes to the Database
         public async Task AddEmployeeAsync(Employee employee)
         {
+			//Add logic to check if the total salary of all employees plus the new employee's salary exceeds the maximum allowed salary
 			var employees = await _employeeRepository.GetEmployeesAsync();
 
 			decimal totalSalary = employees.Sum(e => e.Salary);
